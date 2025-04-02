@@ -19,8 +19,9 @@
    ```sh
    username : Admin
    password : admin
+   
 Tampilan Admin :
-![Tampilan Halaman Login](images/gambar 1.jpg)
+ ![Tampilan Halaman Login](images/gambar 1.jpg)
 
 2. **Wali Kelas** username dan password:
    ```sh
