@@ -19,18 +19,22 @@
    ```sh
    username : Admin
    password : admin
-![Tampilan Halaman Login](images/gambar%201.jpg)
-
+Tampilan Admin :
+![Tampilan Halaman Admin](images/gambar%201.jpg)
 
 2. **Wali Kelas** username dan password:
    ```sh
    username : Mahda SP.d
    password : mahda
+Tampilan Wali Kelas :
+![Tampilan Halaman Wali Kelas](images/gambar%202.jpg)
    
 3. **Orang Tua/Wali** username dan password:
    ```sh
    username : Mahda SP.d
    password : mahda
+Tampilan Orang Tua :
+![Tampilan Halaman Admin](images/gambar%203.jpg)
 
 
 
