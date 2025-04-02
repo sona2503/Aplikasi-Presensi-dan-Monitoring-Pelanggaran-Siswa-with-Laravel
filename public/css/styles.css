@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
+    width: calc(100% - 260px);
+    /* Default main width when sidebar is expanded */
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+    margin-left: 260px;
+    /* Default margin when sidebar is expanded */
+}
+
+#sidebar {
+    width: 260px;
+    min-width: 260px;
+    z-index: 1000;
+    transition: all 0.25s ease-in-out;
+    background-color: #327EA8;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+}
+
+#sidebar.collapsed {
+    width: 70px;
+    min-width: 70px;
+}
+
+#sidebar.collapsed+.main {
+    width: calc(100% - 70px);
+    /* Main width when sidebar is collapsed */
+    margin-left: 70px;
+    /* Main margin when sidebar is collapsed */
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar.collapsed .sidebar-logo,
+#sidebar.collapsed a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .20rem;
+}
+
+.sidebar-link.active {
+    background-color: #f0f0f0;
+    /* Ganti dengan warna yang Anda inginkan */
+    color: #333;
+    /* Ganti dengan warna yang Anda inginkan */
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-item:hover {
+    background-color: #9BA33D;
+    transition: all ease-in .3s;
+}
+
+#sidebar.collapsed .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar.collapsed .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.centered {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 260px;
+        /* Responsive sidebar width */
+    }
+
+    .main {
+        width: 100%;
+        /* Avoid left margin on main content in responsive mode */
+        margin-left: 0;
+    }
+
+    #sidebar.collapsed+.main {
+        width: 100%;
+        margin-left: 70px;
+    }
+}
+
+/* Tambahkan CSS untuk pusatkan tampilan waktu */
+.realtime-clock {
+    display: flex;
+    justify-content: left;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+}
+
+/*css logout*/
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/*-------------------------------------------
+/*css untuk form pengajuan proposal dan lpj*/
+.form-container {
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow: hidden;
+    /* Menyembunyikan overflow */
+}
+
+.form-container h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="file"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container input[type="file"] {
+    padding: 4px 10px;
+    /* Adjust padding for smaller size */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    width: auto;
+    /* Auto width for file input */
+    display: block;
+
+}
+
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container input[type="date"] {
+    width: 25%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container .add-date-button {
+    width: 16%;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    /* Menambahkan margin atas */
+    float: right;
+    /* Menggeser tombol ke kanan */
+}
+
+.form-container select[multiple] {
+    height: auto !important;
+}
+
+.button-container {
+    float: right;
+    /* Menggeser container ke kanan */
+}
+
+
+/*css untuk tampil detail prop */
+
+/* Gaya untuk container-tampilprop */
+.container-tampilprop {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Gaya untuk judul halaman */
+.container-tampilprop h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Gaya untuk tabel */
+.container-tampilprop table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* Gaya untuk header tabel */
+.container-tampilprop th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Gaya untuk sel dalam tabel */
+.container-tampilprop td {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* Gaya untuk baris ganjil dalam tabel */
+.container-tampilprop tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+        /* Style for the login container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+
+        /* Style for the form box */
+        .form-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-box h1 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #0072ff;
+        }
+
+        /* Style for the input fields */
+        .form-box input[type="text"], .form-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style for the login button */
+        .form-box .btn-login {
+            background-color: #0072ff;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Style for the 'Remember Me' and 'Forgot Password' section */
+        .form-box .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .form-box .form-footer a {
+            color: #0072ff;
+            text-decoration: none;
+        }
+
+        .form-box .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Set the body to have 100% height and margin 0 to fill the screen */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Full page background */
+        .password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient blue background */
+        }
+
+        /* Style for the form box */
+        .form-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-box h1 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #0072ff;
+        }
+
+        /* Style for the input fields */
+        .form-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style for the submit button */
+        .form-box .btn-password {
+            background-color: #0072ff;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
